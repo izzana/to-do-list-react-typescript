@@ -1,0 +1,7 @@
+.container-list-tasks {
+  background-color: #ecebeb;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  overflow-y: scroll;
+  max-height: 330px;
+}

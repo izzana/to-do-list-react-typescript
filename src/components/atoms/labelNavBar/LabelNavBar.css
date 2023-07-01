@@ -1,0 +1,13 @@
+.title {
+  color: #AAAAAA;
+  font-size: 17px;
+}
+
+.total-number {
+  background-color: #AAAAAA;
+  color: #FFFF;
+  padding: 0px 7px;
+  margin-left: 5px;
+  border-radius: 10px;
+  
+}

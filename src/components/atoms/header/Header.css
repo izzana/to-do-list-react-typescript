@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid rgba(203, 203, 203, 0.767);
+  padding: 5px;
+
+}
+
+.header-title{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
