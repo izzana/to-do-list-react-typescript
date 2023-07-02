@@ -7,17 +7,29 @@ const FormTaskContext = createContext<IFormTaskContext>({} as IFormTaskContext);
 export const FormsTaskProvider: FC<any> = ({ children }) => {
 
   const [checked, setChecked] = useState<boolean>(false);
+  const [isFiltered, setIsFiltered] = useState(false);
+  const [nextTaskId, setNextTaskId] = useState(1);
+  const [filteredTasks, setFilteredTasks] = useState<ITask[]>([]);
   const [showForm, setShowForm] = useState(false);
   const [strikeThrough, setStrikeThrough] = useState<boolean>(false);
   const [task, setTask] = useState<ITask[]>([]);
   const [title, setTitle] = useState<string>("");
   const [valueNameTask, setValueNameTask] = useState<string>("");
   const [valueDescriptionTask, setValueDescriptionTask] = useState<string>("");
-  const [valueDateTask, setDateTask] = useState<Date | string>();
+  const [valueDateTask, setDateTask] = useState<Date | string | number>();
 
+  const deleteTask = (id: number) => {
+    const updatedTasks = task.filter((task) => task.taskId !== id);
+    setTask(updatedTasks);
+  };
+  
     return (
         <FormTaskContext.Provider value={{
           checked,
+          deleteTask,
+          filteredTasks,
+          isFiltered,
+          nextTaskId, 
           showForm,
           strikeThrough,
           task,
@@ -26,6 +38,9 @@ export const FormsTaskProvider: FC<any> = ({ children }) => {
           valueDescriptionTask,
           valueDateTask,
           setChecked,
+          setFilteredTasks,
+          setNextTaskId,
+          setIsFiltered,
           setShowForm,
           setStrikeThrough,
           setTask,
