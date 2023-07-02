@@ -1,6 +1,10 @@
+.button-nav {
+  border: none;
+  cursor: pointer;
+  background-color: #FFFF;
+}
 .title {
   color: #AAAAAA;
-  font-size: 17px;
 }
 
 .total-number {

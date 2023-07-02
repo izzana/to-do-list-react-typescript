@@ -20,7 +20,7 @@ const TaskDate: FC<any> = (params: any) => {
   
   return (
     <div >
-      <p className="border"></p>
+      {/* <p className="border"></p> */}
       <p className="task-date">{dateFormatter(taskDate)}</p>
     </div>
   )

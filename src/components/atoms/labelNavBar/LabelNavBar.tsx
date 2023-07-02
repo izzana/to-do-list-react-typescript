@@ -8,10 +8,13 @@ const LabelNavBar: FC<ILabelNavBar> = (params: ILabelNavBar) => {
   const label = params.label;
   const total = params.total;
   return (
-    <div className="flex-row justify-content-between ">
-      <p className="title">{label}</p>
-      <p className="total-number title border-radius">{total}</p>
-    </div>
+    
+      <button type="button" className="flex-row justify-content-between border-radius button-nav">
+        <p className="title">{label}</p>
+        <p className="total-number title border-radius">{total}</p>
+      </button>
+      
+    
   )
 }
 

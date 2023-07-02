@@ -4,3 +4,8 @@
   width: 85%;
  
 }
+
+.border{
+  border-top: 1px solid #AAAAAA;
+  margin-top: 10px;
+}

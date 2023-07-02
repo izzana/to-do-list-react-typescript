@@ -13,11 +13,13 @@ import { useFormsTask } from "../../../hooks/FormTask";
 const FormTask: FC<any> = (params: any) => {
   
   const {
+    isFiltered, 
     task,
     title,
     valueNameTask,
     valueDescriptionTask,
     valueDateTask,
+    setIsFiltered,
     setShowForm,
     setTask,
     setTitle,
