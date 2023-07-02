@@ -3,4 +3,4 @@ interface ICheckbox {
   isChecked: boolean;
 }
 
-export default ICheckbox;
+export type {ICheckbox};

@@ -1,12 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import Home from './screens/Home';
+import { FormsTaskProvider } from './hooks/FormTask';
 import './App.css';
 import './index.css';
 function App() {
   return (
-    <div className='container'>
-      <Home/>
+    <div className='container border-radius'>
+      <FormsTaskProvider>
+        <Home/>
+      </FormsTaskProvider>
+     
     </div>
   );
 }

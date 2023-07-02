@@ -2,4 +2,4 @@ interface IHeader {
   title: string;
 }
 
-export default IHeader;
+export type {IHeader};

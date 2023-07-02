@@ -1,0 +1,10 @@
+.form-container {
+  background-color: white;
+  width: 34vw;
+  padding: 20px;
+  position: absolute;
+  top: 10%;
+  right: 32%;
+  z-index: 99999;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}

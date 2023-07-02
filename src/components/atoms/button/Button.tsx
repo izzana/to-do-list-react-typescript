@@ -1,9 +1,10 @@
 import React, {FC} from "react";
-import IHeader from "../../../types/components/atoms/header";
+import {IHeader} from "../../../types/components/atoms/header";
+import './Button.css'
 
-const Button: FC<IHeader> = (params: IHeader) => {
+const Button: FC<any> = (params: any) => {
   return (
-    <button></button>
+    <button className="border-radius container-button" style={params.style} onClick={params.onClick} type="button">{params.title}</button>
   )
 }
 

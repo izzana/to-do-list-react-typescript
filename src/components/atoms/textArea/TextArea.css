@@ -1,0 +1,7 @@
+.text-area-container {
+  padding: 15px;
+  width: 95%;
+  border: none;
+  background-color: #E5E6EA;
+  resize: none;
+}

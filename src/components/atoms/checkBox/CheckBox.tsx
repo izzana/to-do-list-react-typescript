@@ -1,6 +1,6 @@
 import React, {FC} from "react";
-import ICheckbox from "../../../types/components/atoms/checkbox";
-import { FaCheck } from 'react-icons/fa';
+import {ICheckbox} from "../../../types/components/atoms/checkbox";
+
 import '../../../index.css';
 import './Checkbox.css'
 

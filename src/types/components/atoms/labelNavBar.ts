@@ -3,4 +3,4 @@ interface ILabelNavBar {
   total: number;
 }
 
-export default ILabelNavBar;
+export type {ILabelNavBar};

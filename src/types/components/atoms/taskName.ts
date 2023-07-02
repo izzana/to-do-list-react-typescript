@@ -1,6 +1,6 @@
 interface ITaskName {
-  taskTop: string;
-  taskBottom: string;
+  taskName: string;
+  taskDescription: string;
 }
 
-export default ITaskName;
+export type {ITaskName};
