@@ -1,6 +1,9 @@
+import { ITask } from "../molecules/listTask";
 interface ITaskName {
-  taskName: string;
-  taskDescription: string;
+  task: ITask
+  // name: string;
+  // description: string;
+  // id: number;
 }
 
 export type {ITaskName};

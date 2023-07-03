@@ -7,16 +7,14 @@ import Delete from '../../../assets/delete.png';
 import './TaskCard.css'
 
 const TaskCard: FC<any> = (params: any) => {
-  const taskDate = params.taskDate;
-  const taskName = params.taskName;
-  const taskDescription = params.taskDescription;
   const onClick = params.onClick;
+  const task = params.task;
 
   return (
     <div className="flex-column padding container-task-card border-radius">
-      <TaskName taskName={taskName} taskDescription={taskDescription}/>
+      <TaskName task={task}/>
       <div className="flex-row align-center justify-content-between border">
-        <TaskDate taskDate={taskDate}/>
+        <TaskDate date={task.date}/>
         <ButtonIcon id={"delete"} icon={Delete} onClick={onClick}/>
       </div>
     </div>
@@ -24,3 +22,4 @@ const TaskCard: FC<any> = (params: any) => {
 }
 
 export default TaskCard;
+

@@ -16,7 +16,7 @@ const TextArea: FC<ITextArea> = (params: ITextArea) => {
                 <textarea className="text-area-container border-radius" name={params.name} id={params.id} rows={2} cols={50} maxLength={50} placeholder={params.placeholder} onChange={params.onChange}/>
             </>
             <p>
-                <span>{`Caracteres utilizados: ${text}`}</span>
+                <span>{`Caracteres utilizados: ${text || 0}`}</span>
                 <span>/{params.maxLength}</span>
             </p>
         </>

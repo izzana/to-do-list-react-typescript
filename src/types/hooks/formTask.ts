@@ -1,29 +1,23 @@
 import { ITask } from "../components/molecules/listTask";
 
-interface IFormTaskContext {
-  checked: boolean;
+interface ITaskContext {
+  currentTask: ITask | undefined;
   filteredTasks: ITask[]; 
   isFiltered: boolean; 
-  nextTaskId: number;
+  nextid: number;
   showForm: boolean;
-  strikeThrough: boolean;
-  task: ITask[];
+  tasks: ITask[];
   title: string;
-  valueNameTask: string;
-  valueDescriptionTask: string;
-  valueDateTask: Date | string | number | undefined;
   deleteTask: (value: any) => void;
-  setChecked: (value: boolean) => void;
+  setCurrentTask: (value: any) => void;
   setFilteredTasks:(value: any) => void;
-  setNextTaskId: (value: any) => void;
+  setNextid: (value: any) => void;
   setIsFiltered: (value: boolean) => void;
   setShowForm: (value: boolean) => void;
-  setStrikeThrough: (value: boolean) => void;
-  setTask: (value: any) => void;
-  setTitle: (value: string) => void;  
-  setValueNameTask: (value: string) => void;  
-  setValueDescriptionTask: (value: string) => void; 
-  setDateTask: (value: Date | string) => void;  
+  setTasks: (value: any) => void;
+  setTitle: (value: string) => void;
+  parseStrToDate: (date: string) => void;   
+  handleFilterTasksButton: () => void;
 }
 
-export type {IFormTaskContext};
+export type {ITaskContext};

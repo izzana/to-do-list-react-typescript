@@ -15,12 +15,10 @@
 }
 
 .check-icon {
-  color: #00ff00; /* Define a cor do ícone para verde */
-  font-size: 20px; /* Define o tamanho do ícone para 20 pixels */
-  /* Outros estilos de sua escolha */
+  color: #00ff00;
+  font-size: 20px;
 }
 
-/* Customize the label (the input) */
 .input {
   display: block;
   position: relative;
@@ -34,7 +32,6 @@
   user-select: none;
 }
 
-/* Hide the browser's default radio button */
 .input input {
   position: absolute;
   opacity: 0;
@@ -43,7 +40,6 @@
   width: 0;
 }
 
-/* Create a custom radio button */
 .checkmark {
   position: absolute;
   top: 0;
@@ -54,29 +50,24 @@
   border-radius: 50%;
 }
 
-/* On mouse-over, add a grey background color */
 .input:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
-/* When the radio button is checked, add a blue background */
 .input input:checked ~ .checkmark {
   background-color: #2196F3;
 }
 
-/* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the indicator (dot/circle) when checked */
 .input input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the indicator (dot/circle) */
 .input .checkmark:after {
   left: 9px;
   top: 5px;

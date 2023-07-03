@@ -1,6 +1,10 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple to-do-list implemented using TypeScript and based on atomic design pattern.
+Features to be implemented: 
+  - adjust some functions and state types
+  - create different providers based in the scope
+  - unit tests
 
 ## Available Scripts
 

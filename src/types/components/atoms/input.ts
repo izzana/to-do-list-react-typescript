@@ -1,7 +1,7 @@
 interface IInput {
-  // title: string;
+  date?: any;
   placeholder?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: any) => void;
 }
 
 export type {IInput};

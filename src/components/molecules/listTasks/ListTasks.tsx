@@ -2,38 +2,55 @@ import React, {FC, useEffect} from "react";
 
 import TaskCard from "../../atoms/taskCard/TaskCard";
 import './ListTasks.css'
-import { useFormsTask } from "../../../hooks/FormTask";
+import { useFormsTask } from "../../../hooks/Task";
 
 const ListTasks: FC<any> = (params: any) => {
   const {
-    task,
+    tasks,
     deleteTask,
     filteredTasks,
     setFilteredTasks,
     isFiltered,
+    parseStrToDate,
+    setTasks,
   } = useFormsTask();
-
-  const renderTasks = isFiltered ? filteredTasks : task;
 
   const handleDeleteTask = (id: number) => {
     deleteTask(id);
+    localStorage.setItem("tasks",JSON.stringify([]));
+    setFilteredTasks([]);
   };
 
   useEffect(() => {
-    if (isFiltered) {
-      setFilteredTasks(task);
+    let storedTasks = localStorage.getItem("tasks");
+    if (typeof storedTasks === 'string') {
+      const parsedTasks = JSON.parse(storedTasks);
+      if (Array.isArray(parsedTasks)) {
+        const tasks = parsedTasks.map((task: any) => {
+          task.date = parseStrToDate(task.date.split('T')[0]);
+          return task;
+        });
+        setTasks(tasks);
+      }
     }
-    console.log("tasks filtradas atualizadas: ", filteredTasks);
-    console.log("tasks total: ", task);
+  }, []);
 
-  }, [task, filteredTasks]);
+  useEffect(() => {
+    if (!isFiltered) {
+      setFilteredTasks(tasks);
+    }
 
-  console.log("task:" + task)
+    if(tasks.length) {
+      localStorage.setItem("tasks",JSON.stringify(tasks));
+    } 
+  }, [tasks, filteredTasks, isFiltered]);
+
+  const renderTasks = isFiltered ? filteredTasks : tasks;
 
   return (
     <div className="flex-column container-list-tasks align-center border-radius">
-      {renderTasks.map((value, index) => (
-        <TaskCard key={value.taskId} taskName={value.taskName} taskDescription={value.taskDescription} taskDate={value.taskDate} onClick={() => handleDeleteTask(value.taskId)}/>
+      {renderTasks.map((task, index) => (
+        <TaskCard task={task} id={task.id} key={task.id} onClick={() => handleDeleteTask(task.id)}/>
       ))}
     </div>
   )

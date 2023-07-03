@@ -1,12 +1,9 @@
-interface IListTask {
-  task: ITask[];
-}
-
 interface ITask {
-  taskName: string;
-  taskDescription: string;
-  taskDate: Date | string;
-  taskId: number;
+  date: Date | string;
+  description: string;
+  id: number;
+  isClosed: boolean;
+  name: string;
 }
 
-export type {IListTask, ITask};
+export type { ITask };

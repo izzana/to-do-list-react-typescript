@@ -1,15 +1,14 @@
 import React from 'react';
 import Home from './screens/Home';
-import { FormsTaskProvider } from './hooks/FormTask';
+import { TaskProvider } from './hooks/Task';
 import './App.css';
 import './index.css';
 function App() {
   return (
     <div className='container border-radius'>
-      <FormsTaskProvider>
+      <TaskProvider>
         <Home/>
-      </FormsTaskProvider>
-     
+      </TaskProvider>
     </div>
   );
 }
