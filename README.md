@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# About this project
 
 This project is a simple to-do-list implemented using TypeScript and based on atomic design pattern.
 Features to be implemented: 
