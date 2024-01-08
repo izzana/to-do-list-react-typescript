@@ -1,8 +1,10 @@
-import React, { FC, createContext, useContext, useState } from 'react'
+import { FC, createContext, useCallback, useContext, useMemo, useState } from 'react'
+
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { ITaskContext } from '../types/hooks/formTask';
 import { ITask } from '../types/components/molecules/listTask'
+
 const TaskContext = createContext<ITaskContext>({} as ITaskContext);
 
 export const TaskProvider: FC<any> = ({ children }) => {
@@ -15,12 +17,12 @@ export const TaskProvider: FC<any> = ({ children }) => {
   const [tasks, setTasks] = useState<ITask[]>([]);
   const [title, setTitle] = useState<string>("");
 
-  const deleteTask = (id: number) => {
+  const deleteTask = useCallback((id: number) => {
     const updatedTasks = tasks.filter((task) => task.id !== id);
     setTasks(updatedTasks);
-  };
+  },[tasks]);
 
-  const handleFilterTasksButton = () => {
+  const handleFilterTasksButton = useCallback(() => {
     setShowForm(false);
 
     let filterTasks = tasks;
@@ -30,13 +32,13 @@ export const TaskProvider: FC<any> = ({ children }) => {
           (item) => item.description.trim() === currentTask.description.trim()
         );
       }
-  
+
       if (currentTask.name) {
         filterTasks = filterTasks.filter(
           (item) => item.name === currentTask.name
         );
       }
-  
+
       if (currentTask.date) {
         const filterDate = new Date(currentTask.date);
         filterTasks = filterTasks.filter(
@@ -49,43 +51,62 @@ export const TaskProvider: FC<any> = ({ children }) => {
     setFilteredTasks(filterTasks);
     setIsFiltered(true);
     setCurrentTask(undefined);
-  };
+  }, [tasks, currentTask, setFilteredTasks, setIsFiltered, setCurrentTask, setShowForm]);
 
-  const parseStrToDate = (date: string) => {
+  const parseStrToDate = useCallback((date: string) => {
     const inputDate = date;
     const [year, month, day] = inputDate.split('-');
     const selectedDate = new Date(Number(year), Number(month) - 1, Number(day));
+
     return formatDate(selectedDate);
-  }
+  },[])
 
   const formatDate = (date: any) => {
     const formattedDate = format(date, 'eeee, dd MMMM', { locale: ptBR});
     return new Date(formattedDate);
   }
-  
-    return (
-        <TaskContext.Provider value={{
-          currentTask,
-          deleteTask,
-          filteredTasks,
-          isFiltered,
-          nextid, 
-          showForm,
-          tasks,
-          title,
-          parseStrToDate,
-          setCurrentTask,
-          setFilteredTasks,
-          setNextid,
-          setIsFiltered,
-          setShowForm,
-          setTasks,
-          setTitle,
-          handleFilterTasksButton,
-        }}>{children}</TaskContext.Provider>
-    )
 
-    
+  const value = useMemo(() => ({
+    currentTask,
+    deleteTask,
+    filteredTasks,
+    isFiltered,
+    nextid,
+    showForm,
+    tasks,
+    title,
+    parseStrToDate,
+    setCurrentTask,
+    setFilteredTasks,
+    setNextid,
+    setIsFiltered,
+    setShowForm,
+    setTasks,
+    setTitle,
+    handleFilterTasksButton,
+  }), [
+    currentTask,
+    deleteTask,
+    filteredTasks,
+    isFiltered,
+    nextid,
+    showForm,
+    tasks,
+    title,
+    parseStrToDate,
+    setCurrentTask,
+    setFilteredTasks,
+    setNextid,
+    setIsFiltered,
+    setShowForm,
+    setTasks,
+    setTitle,
+    handleFilterTasksButton,
+  ]);
+
+  return (
+    <TaskContext.Provider value={value}>{children}</TaskContext.Provider>
+  );
 }
 
 export function useFormsTask() {
