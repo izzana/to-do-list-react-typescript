@@ -1,7 +1,9 @@
-import React, {FC} from "react";
+import {FC} from "react";
+
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import {IHeader} from "../../../types/components/atoms/header";
+
 import './TaskHeaderDate.css';
 
 const TaskHeaderDate: FC<IHeader> = (params: IHeader) => {

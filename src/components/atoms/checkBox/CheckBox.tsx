@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { ICheckbox } from '../../../types/components/atoms/checkbox';
 
 import '../../../index.css';

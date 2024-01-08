@@ -1,34 +1,28 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, { FC } from 'react';
 
-import { format } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
-import Header from '../../atoms/header/Header';
+import { useFormsTask } from '../../../hooks/Task';
+
 import TitleText from '../../atoms/titleText/TitleText';
-import '../../../index.css';
-import './FormTask.css';
 import Input from '../../atoms/input/Input';
 import InputDate from '../../atoms/inputDate/InputDate';
 import TextArea from '../../atoms/textArea/TextArea';
 import Button from '../../atoms/button/Button';
-import { useFormsTask } from '../../../hooks/Task';
+
+import '../../../index.css';
+import './FormTask.css';
 
 const FormTask: FC<any> = (params: any) => {
-  
+
   const {
-    isFiltered, 
-    tasks,
     currentTask,
     title,
     parseStrToDate,
-    setIsFiltered,
     setCurrentTask,
     setShowForm,
-    setTasks,
-    setTitle,
   } = useFormsTask();
 
   const onClick = params.onClick;
-  
+
   const handleInputName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentTask({...currentTask, name: event.target.value});
   }
@@ -46,13 +40,13 @@ const FormTask: FC<any> = (params: any) => {
   const handleCancelButton = () => {
     setShowForm(false);
     setCurrentTask(undefined);
-  } 
+  }
 
   return (
     <form action='' className='justify-content-between align-center'>
       <Input placeholder='Add task name...' onChange={handleInputName}/>
       <TitleText title='Description'/>
-      <TextArea placeholder='Add description...' text={currentTask?.description?.length} maxLength={50}  
+      <TextArea placeholder='Add description...' text={currentTask?.description?.length} maxLength={50}
         onChange={handleInputDescription}/>
       <TitleText title='Date'/>
       <InputDate onChange={handleInputData}/>

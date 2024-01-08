@@ -1,7 +1,6 @@
-import React, {FC, useState} from "react";
+import { FC } from "react";
 
-import Header from "../../atoms/header/Header";
-import {IText} from "../../../types/components/atoms/textTitle";
+import { IText } from "../../../types/components/atoms/textTitle";
 
 import '../../../index.css';
 import './TitleText.css';

@@ -1,10 +1,12 @@
-import React, {FC} from "react";
+import {FC} from "react";
+
 import TaskName from "../taskName/TaskName";
-import '../../../index.css';
 import ButtonIcon from "../buttonIcon/ButtonIcon";
 import TaskDate from "../taskDate/TaskDate";
 import Delete from '../../../assets/delete.png';
+
 import './TaskCard.css'
+import '../../../index.css';
 
 const TaskCard: FC<any> = (params: any) => {
   const onClick = params.onClick;

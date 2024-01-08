@@ -1,4 +1,4 @@
-import React, {FC, useState} from "react";
+import { FC } from "react";
 
 import {IInput} from "../../../types/components/atoms/input";
 
@@ -10,9 +10,7 @@ const Input: FC<IInput> = (params: IInput) => {
   const onChange = params.onChange;
 
   return (
-    <>
-      <input className="input-container border-radius" type="text" name="" id="" placeholder={placeholder} onChange={onChange} maxLength={30} required/>
-    </>
+    <input className="input-container border-radius" type="text" name="" id="" placeholder={placeholder} onChange={onChange} maxLength={30} required/>
   )
 }
 

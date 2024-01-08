@@ -1,5 +1,6 @@
-import React, {FC} from "react";
+import {FC} from "react";
 import {IButtonIcon} from "../../../types/components/atoms/buttonIcon";
+
 import './ButtonIcon.css';
 
 const ButtonIcon: FC<IButtonIcon> = (params: IButtonIcon) => {

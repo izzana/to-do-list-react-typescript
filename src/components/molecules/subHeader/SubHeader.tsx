@@ -1,26 +1,24 @@
-  import React, {FC, useState, useEffect} from 'react';
+  import {FC, useEffect} from 'react';
+  import { useFormsTask } from '../../../hooks/Task';
+
   import ButtonIcon from '../../atoms/buttonIcon/ButtonIcon';
   import Form from '../form/Form';
 
   import TaskHeaderDate from '../../atoms/taskHeaderDate/TaskHeaderDate';
-  import { useFormsTask } from '../../../hooks/Task';
-  import '../../../index.css';
-  import './SubHeader.css';
   import Add from '../../../assets/add.png';
   import Filter from '../../../assets/filter.png'
+
+  import '../../../index.css';
+  import './SubHeader.css';
 
   const SubHeader: FC<any> = (params: any) => {
     const {
       currentTask,
-      filteredTasks,
-      isFiltered,
       nextid,
       tasks,
       title,
       showForm,
       setCurrentTask,
-      setFilteredTasks,
-      setIsFiltered,
       setNextid,
       setShowForm,
       setTasks,
@@ -57,13 +55,13 @@
     }
 
     const handleFormButton = title === 'Create Task' ? handleCreateTaskButton : handleFilterTasksButton;
-    
+
     useEffect(() => {
       if (tasks.length > 0) {
         handleFilterTasksButton();
       }
     }, [tasks]);
-    
+
     return (
       <div className='flex-row align-center justify-content-between padding container-sub-header'>
         <TaskHeaderDate title="Today's Task"/>
@@ -71,14 +69,14 @@
           <Form title={title} onClick={handleFormButton} />
         ) : null}
         <div className='flex-row justify-content-between container-button'>
-          <ButtonIcon 
-            id='create' 
+          <ButtonIcon
+            id='create'
             icon={Add}
             onClick={() => handleClickTask()}
           />
-          <ButtonIcon 
-            id='filter' 
-            icon={Filter} 
+          <ButtonIcon
+            id='filter'
+            icon={Filter}
             onClick={() => handleClickFilter()}
           />
         </div>

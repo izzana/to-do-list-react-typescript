@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { ITaskName } from "../../../types/components/atoms/taskName";
 import { useFormsTask } from "../../../hooks/Task";
 
 import Checkbox from "../checkBox/CheckBox";
+
 import '../../../index.css';
 import './TaskName.css';
 
@@ -22,7 +23,6 @@ const TaskName: FC<ITaskName> = (params: ITaskName) => {
       }
       return task;
     });
-  
     setTasks(updatedTasks);
   };
 
@@ -37,9 +37,7 @@ const TaskName: FC<ITaskName> = (params: ITaskName) => {
         onChange={() => handleCheckBox(params.task.id)}
       />
     </div>
-
   );
-  
 };
 
 export default TaskName;

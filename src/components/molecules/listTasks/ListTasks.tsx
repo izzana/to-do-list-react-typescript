@@ -1,8 +1,9 @@
-import React, {FC, useEffect} from "react";
+import {FC, useEffect} from "react";
 
 import TaskCard from "../../atoms/taskCard/TaskCard";
-import './ListTasks.css'
 import { useFormsTask } from "../../../hooks/Task";
+
+import './ListTasks.css'
 
 const ListTasks: FC<any> = (params: any) => {
   const {
@@ -42,7 +43,7 @@ const ListTasks: FC<any> = (params: any) => {
 
     if(tasks.length) {
       localStorage.setItem("tasks",JSON.stringify(tasks));
-    } 
+    }
   }, [tasks, filteredTasks, isFiltered]);
 
   const renderTasks = isFiltered ? filteredTasks : tasks;

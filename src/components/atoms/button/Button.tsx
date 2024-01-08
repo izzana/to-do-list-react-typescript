@@ -1,5 +1,4 @@
-import React, {FC} from "react";
-import {IHeader} from "../../../types/components/atoms/header";
+import {FC} from "react";
 import './Button.css'
 
 const Button: FC<any> = (params: any) => {

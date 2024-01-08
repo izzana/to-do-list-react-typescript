@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import {FC} from "react";
 
 import {IInput} from "../../../types/components/atoms/input";
 import '../../../index.css';
@@ -9,9 +9,7 @@ const InputDate: FC<IInput> = (params: IInput) => {
   const date = params.date;
 
   return (
-    <>
-      <input className="input-container border-radius" value={date} type="date" onChange={onChange}/>
-    </>
+    <input className="input-container border-radius" value={date} type="date" onChange={onChange}/>
   )
 }
 

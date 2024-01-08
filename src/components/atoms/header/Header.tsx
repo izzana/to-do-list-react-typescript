@@ -1,5 +1,7 @@
-import React, {FC} from "react";
+import {FC} from "react";
+
 import {IHeader} from "../../../types/components/atoms/header";
+
 import './Header.css'
 
 const Header: FC<IHeader> = (params: IHeader) => {
