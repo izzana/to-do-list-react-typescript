@@ -8,7 +8,7 @@ const ButtonIcon: FC<IButtonIcon> = (params: IButtonIcon) => {
   const icon  = params.icon;
   const id = params.id;
   return (
-    <button id={id} className="flex-row align-center button-icon border-radius" onClick={onClick}>
+    <button data-testid={`delete-button-${id}`} id={id} className="flex-row align-center button-icon border-radius" onClick={onClick}>
       <img src={icon} alt="Icon"/>
     </button>
   )

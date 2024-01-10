@@ -15,8 +15,8 @@ const NavBar: FC<any> = (params: any) => {
   } = useFormsTask();
 
   const all = tasks;
-  const open = tasks.filter(task => !task.isClosed);
-  const closed = tasks.filter(task => task.isClosed);
+  const open = tasks?.filter(task => !task.isClosed);
+  const closed = tasks?.filter(task => task.isClosed);
 
   const handleAllClick = () => {
     setFilteredTasks(all)
@@ -31,9 +31,9 @@ const NavBar: FC<any> = (params: any) => {
   };
 
   const data = [
-    { name: "All", number: all.length, onClick: handleAllClick },
-    { name: "Open", number: open.length, onClick: handleOpenClick },
-    { name: "Closed", number: closed.length, onClick: handleClosedClick },
+    { name: "All", number: all?.length, onClick: handleAllClick },
+    { name: "Open", number: open?.length, onClick: handleOpenClick },
+    { name: "Closed", number: closed?.length, onClick: handleClosedClick },
   ];
 
 

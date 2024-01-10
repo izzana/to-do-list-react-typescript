@@ -11,7 +11,7 @@
   import '../../../index.css';
   import './SubHeader.css';
 
-  const SubHeader: FC<any> = (params: any) => {
+  const SubHeader: FC<any> = () => {
     const {
       currentTask,
       nextid,
@@ -57,7 +57,7 @@
     const handleFormButton = title === 'Create Task' ? handleCreateTaskButton : handleFilterTasksButton;
 
     useEffect(() => {
-      if (tasks.length > 0) {
+      if (tasks?.length > 0) {
         handleFilterTasksButton();
       }
     }, [tasks]);

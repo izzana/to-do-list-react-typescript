@@ -2,8 +2,8 @@ import { ITask } from "../components/molecules/listTask";
 
 interface ITaskContext {
   currentTask: ITask | undefined;
-  filteredTasks: ITask[]; 
-  isFiltered: boolean; 
+  filteredTasks: ITask[];
+  isFiltered: boolean;
   nextid: number;
   showForm: boolean;
   tasks: ITask[];
@@ -16,7 +16,7 @@ interface ITaskContext {
   setShowForm: (value: boolean) => void;
   setTasks: (value: any) => void;
   setTitle: (value: string) => void;
-  parseStrToDate: (date: string) => void;   
+  parseStrToDate: (date: string) => void;
   handleFilterTasksButton: () => void;
 }
 

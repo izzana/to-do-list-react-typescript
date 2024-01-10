@@ -50,8 +50,8 @@ const ListTasks: FC<any> = (params: any) => {
 
   return (
     <div className="flex-column container-list-tasks align-center border-radius">
-      {renderTasks.map((task, index) => (
-        <TaskCard task={task} id={task.id} key={task.id} onClick={() => handleDeleteTask(task.id)}/>
+      {renderTasks?.map((task, index) => (
+        <TaskCard data-testid={`task-${task.id}`} task={task} id={task.id} key={task.id} onClick={() => handleDeleteTask(task.id)}/>
       ))}
     </div>
   )
