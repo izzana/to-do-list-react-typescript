@@ -29,7 +29,7 @@ const TaskName: FC<ITaskName> = (params: ITaskName) => {
   return (
     <div className="flex-row justify-content-between align-center task-container">
       <div className="flex-column justify-content-between">
-        <h2 className={params.task.isClosed ? "strike" : ""}>{params.task.name}</h2>
+        <h2 className={params.task.isClosed ? "strike" : ""} data-testid={`task-name-${params.task.id}`}>{params.task.name}</h2>
         <p className="task-bottom">{params.task.description}</p>
       </div>
       <Checkbox
